@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Wallet - Front</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">  
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" href="assets/main.css">
+</head>
+<body>
+  <div id="app">
+  
+    <el-container style="height: 500px; border: 1px solid #eee">
+      <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+        <el-menu :default-openeds="['1', '2']">
+          <el-submenu index="1">
+            <template slot="title"><i class="fa fa-user-circle" aria-hidden="true"></i> Cliente</template>
+            <router-link to="/clients/create">
+              <el-menu-item index="1-1"><i class="fa fa-plus-circle" aria-hidden="true"></i> Crear</el-menu-item>
+            </router-link>
+
+            <router-link to="/clients/wallet/balance">
+              <el-menu-item index="1-2"><i class="fa fa-list-alt" aria-hidden="true"></i> Consultar saldo</el-menu-item>
+            </router-link>
+          </el-submenu>
+          <el-submenu index="2">
+              <template slot="title"><i class="fa fa-credit-card" aria-hidden="true"></i> Billetera</template>
+
+              <router-link to="/wallets/charge">
+                <el-menu-item index="1-3"><i class="fa fa-long-arrow-up" aria-hidden="true"></i> Cargar billetera</el-menu-item>
+              </router-link>
+
+              <router-link to="/wallets/payrequest">
+                <el-menu-item index="1-4"><i class="fa fa-long-arrow-down" aria-hidden="true"></i> Realizar pago</el-menu-item>
+              </router-link>
+             
+              <router-link to="/wallets/paycheck">
+                <el-menu-item index="1-5"><i class="fa fa-check-square-o" aria-hidden="true"></i> Confirmar pago</el-menu-item>
+              </router-link>
+              
+          </el-submenu>
+        </el-menu>
+      </el-aside>
+      
+      <el-container>
+        <el-header style="text-align: right; font-size: 12px">
+          <span><b>Operaciones Billetera Virtual</b></span>
+        </el-header>
+        
+        <el-main>
+            <router-view></router-view>
+        </el-main>
+      </el-container>
+    </el-container>
+    
+  </div>
+
+  <!-- Componete: Crear cliente -->
+  <template id="clients-create">
+    <h1>Crear Cliente</h1>
+  </template>
+
+  <!-- Componete: Consultar saldo en la billetera -->
+  <template id="wallet-balance">
+    <h1>Consultar saldo</h1>
+  </template>
+
+  <!-- Componete: Cargar dinero en la billetera -->
+  <template id="wallets-charge">
+    <h1>Cargar billetera</h1>
+  </template>
+
+  <!-- Componete: Solicitar pago -->
+  <template id="wallets-payrequest">
+    <h1>Solicitar pago</h1>
+  </template>
+
+  <!-- Componete: Confirmar pago -->
+  <template id="wallets-paycheck">
+    <h1>Confirmar pago</h1>
+  </template>
+  
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="assets/main.js"></script>
+</body>
+</html>
