@@ -252,23 +252,45 @@ const walletsCharge = Vue.component("wallets-charge-component",
 });
 
 /**
- * Componete: Solicitar pago 
+ * Componete: Realizar pago 
  */
 const walletsPayrequest = Vue.component("wallets-payrequest-component",
 {
-    template: "#wallets-payrequest",
-    data: function() {
-      return {
-          institute: "prueba"
+  template: "#wallets-payrequest",
+  data() {
+    return {
+      formWalletsPayrequest: {
+        document: '',
+        cell_phone: '',
+      },
+      rulesWalletsPayrequest: {
+        document: [
+          { validator: validateDocument, trigger: 'blur' }
+        ],
+        cell_phone: [
+          { validator: validateCellphone, trigger: 'blur' }
+        ],
+        to_pay: [
+          { validator: validateToPay, trigger: 'blur' }
+        ]
       }
-  }, 
-  mounted() {
-     
+    };
   },
   methods: {
-
-  }
-
+    submitForm(formName) {      
+      this.$refs[formName].validate((valid) => {                    
+        if (valid) {
+          executeApiRequest('POST','/wallets/payrequest',this.formWalletsPayrequest,this,formName);   
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    }
+  } 
 });
 
 /**

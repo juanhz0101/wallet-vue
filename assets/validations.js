@@ -36,6 +36,14 @@ var validateCellphone = (rule,value, callback) => {
 
 var validateValue = (rule,value, callback) => {
   if (!value) {
+    return callback(new Error('Por favor ingresar un monto para cargar'));
+  }  else {
+    callback();
+  }   
+};
+
+var validateToPay = (rule,value, callback) => {
+  if (!value) {
     return callback(new Error('Por favor ingresar un monto a pagar'));
   }  else {
     callback();
