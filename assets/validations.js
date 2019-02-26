@@ -33,3 +33,11 @@ var validateCellphone = (rule,value, callback) => {
     callback();
   }   
 };
+
+var validateValue = (rule,value, callback) => {
+  if (!value) {
+    return callback(new Error('Por favor ingresar un monto a pagar'));
+  }  else {
+    callback();
+  }   
+};

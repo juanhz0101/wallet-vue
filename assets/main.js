@@ -208,26 +208,47 @@ const walletBalance = Vue.component("wallet-balance-component",
       this.walletBalance = '';
     }
   }
-
 });
 /**
  * Componete: Cargar dinero en la billetera
  */
 const walletsCharge = Vue.component("wallets-charge-component",
 {
-    template: "#wallets-charge",
-    data: function() {
-      return {
-          institute: "prueba"
+  template: "#wallets-charge",
+  data() {
+    return {
+      formWalletsCharge: {
+        document: '',
+        cell_phone: '',
+      },
+      rulesWalletsCharge: {
+        document: [
+          { validator: validateDocument, trigger: 'blur' }
+        ],
+        cell_phone: [
+          { validator: validateCellphone, trigger: 'blur' }
+        ],
+        value: [
+          { validator: validateValue, trigger: 'blur' }
+        ]
       }
-  }, 
-  mounted() {
-     
+    };
   },
   methods: {
-
+    submitForm(formName) {      
+      this.$refs[formName].validate((valid) => {                    
+        if (valid) {
+          executeApiRequest('POST','/wallets/charge',this.formWalletsCharge,this,formName);   
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    }
   }
-
 });
 
 /**
