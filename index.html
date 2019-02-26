@@ -13,7 +13,7 @@
 <body>
   <div id="app">
   
-    <el-container style="height: 500px; border: 1px solid #eee">
+    <el-container style="height: 550px; border: 1px solid #eee">
       <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
         <el-menu :default-openeds="['1', '2']">
           <el-submenu index="1">
@@ -60,7 +60,45 @@
 
   <!-- Componete: Crear cliente -->
   <template id="clients-create">
-    <h1>Crear Cliente</h1>
+    
+    <div class="row">
+      <div class="col-md-12">
+          <h3>Crear cliente</h3>
+          <hr>
+      </div>
+      <div class="col-md-8">
+          
+          <el-form 
+                  :model="formclientsCreate" 
+                  status-icon 
+                  :rules="rulesClientsCreate" 
+                  ref="formclientsCreate" label-width="150px" class="demo-ruleForm">
+
+              <el-form-item label="Nombre" prop="name">
+                <el-input type="text" v-model="formclientsCreate.name" autocomplete="off"></el-input>
+              </el-form-item>
+
+              <el-form-item label="Correo Electrónico" prop="email">
+                <el-input type="email" v-model="formclientsCreate.email" autocomplete="off"></el-input>
+              </el-form-item>
+
+              <el-form-item label="# Documento" prop="document">
+                <el-input type="text" v-model="formclientsCreate.document" autocomplete="off"></el-input>
+              </el-form-item>
+
+              <el-form-item label="Número Celular" prop="cell_phone">
+                <el-input type="text" v-model="formclientsCreate.cell_phone" autocomplete="off"></el-input>
+              </el-form-item>
+
+              <el-form-item>
+                <el-button type="primary" @click="submitForm('formclientsCreate')">Crear</el-button>
+                <el-button @click="resetForm('formclientsCreate')">Limpiar campos</el-button>
+              </el-form-item>
+            </el-form>
+      </div>
+    </div>
+   
+
   </template>
 
   <!-- Componete: Consultar saldo en la billetera -->
@@ -86,6 +124,8 @@
   <script src="https://unpkg.com/vue/dist/vue.js"></script>
   <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
   <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="assets/validations.js"></script>
   <script src="assets/main.js"></script>
 </body>
 </html>

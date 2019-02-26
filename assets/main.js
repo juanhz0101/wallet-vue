@@ -1,22 +1,100 @@
-// 1. Definición de Componentes.
+//0. Funciones de ayuda
+const apiUri = "http://localhost:3000";
 
+/**
+ * Funcion utilizada para preparar las peticiones http que seran enviadas al servicio de node
+ */
+const executeApiRequest = function(method,route,params,instance,formName) {
+
+  switch (method) {
+    case 'POST':
+      axios.post(`${apiUri}${route}`,params)
+      .then((response) => {
+          const result = response.data;
+          if (result.status_code === 200) {
+            instance.$refs[formName].resetFields();
+            instance.$notify({
+              title: 'Satisfactorio',
+              message: result.message_success,
+              type: 'success',
+              offset: 129
+            });
+          }      
+      }).catch(error => {
+        const result = error.response.data;
+        if (result.status_code === 400) {
+          instance.$notify({
+            title: 'Advertencia',
+            message: result.message_error,
+            type: 'warning',
+            offset: 129
+          });      
+        }else if (result.status_code === 500) {
+          instance.$notify({
+            title: 'Error',
+            message: result.message_error,
+            type: 'error',
+            offset: 129
+          });
+        }
+      });
+      break;
+  
+    case 'GET':
+    
+      break;
+  }
+
+  
+};
+
+// 1. Definición de Componentes.
 /**
  * Componete: Crear cliente
  */
 const clientsCreate = Vue.component("clients-create-component",
 {
     template: "#clients-create",
-    data: function() {
+    data() {
       return {
-          institute: "prueba"
+        formclientsCreate: {
+          name: '',
+          email: '',
+          document: '',
+          cell_phone: '',
+        },
+        rulesClientsCreate: {
+          name: [
+            { validator: validateName, trigger: 'blur' }
+          ],
+          email: [
+            { validator: validateEmail, trigger: 'blur' }
+          ],
+          document: [
+            { validator: validateDocument, trigger: 'blur' }
+          ],
+          cell_phone: [
+            { validator: validateCellphone, trigger: 'blur' }
+          ]
+        }
+      };
+    },
+    methods: {
+      submitForm(formName) {
+        
+         this.$refs[formName].validate((valid) => {                    
+          if (valid) {
+            executeApiRequest('POST','/clients/create',this.formclientsCreate,this,formName);   
+          } else {
+            console.log('error submit!!');
+            return false;
+          }
+        });
+      },
+      resetForm(formName) {
+        this.$refs[formName].resetFields();
       }
-  }, 
-  mounted() {
-     
-  },
-  methods: {
-
-  }
+    }
 
 });
 /**
