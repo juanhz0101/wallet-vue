@@ -2,7 +2,7 @@
  * 
  * Grupo de validaciones para el formulario: Creacion de cliente
  */
-var validateName = (value, callback) => {
+var validateName = (rule,value, callback) => {
   if (!value) {
     return callback(new Error('Por favor ingresar nombre'));
   }else {
@@ -10,7 +10,7 @@ var validateName = (value, callback) => {
   }
 };
 
-var validateEmail = (value, callback) => {
+var validateEmail = (rule,value, callback) => {
   if (!value) {
     return callback(new Error('Por favor ingresar email'));
   }else {
@@ -18,7 +18,7 @@ var validateEmail = (value, callback) => {
   }
 };
 
-var validateDocument = (value, callback) => {
+var validateDocument = (rule,value, callback) => {
   if (!value) {
     return callback(new Error('Por favor ingresar documento'));
   } else {
@@ -26,7 +26,7 @@ var validateDocument = (value, callback) => {
   }  
 };
 
-var validateCellphone = (value, callback) => {
+var validateCellphone = (rule,value, callback) => {
   if (!value) {
     return callback(new Error('Por favor ingresar número de celular'));
   }  else {
