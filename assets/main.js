@@ -118,7 +118,7 @@ const executeApiRequest = function(method,route,params,instance,formName) {
 
 // 1. Definición de Componentes.
 /**
- * Componete: Crear cliente
+ * Componente: Crear cliente
  */
 const clientsCreate = Vue.component("clients-create-component",
 {
@@ -165,7 +165,7 @@ const clientsCreate = Vue.component("clients-create-component",
   }
 });
 /**
- * Componete: Consultar saldo en la billetera
+ * Componente: Consultar saldo en la billetera
  */
 const walletBalance = Vue.component("wallet-balance-component",
 {
@@ -211,7 +211,7 @@ const walletBalance = Vue.component("wallet-balance-component",
   }
 });
 /**
- * Componete: Cargar dinero en la billetera
+ * Componente: Cargar dinero en la billetera
  */
 const walletsCharge = Vue.component("wallets-charge-component",
 {
@@ -254,7 +254,7 @@ const walletsCharge = Vue.component("wallets-charge-component",
 });
 
 /**
- * Componete: Realizar pago 
+ * Componente: Realizar pago 
  */
 const walletsPayrequest = Vue.component("wallets-payrequest-component",
 {
@@ -297,7 +297,7 @@ const walletsPayrequest = Vue.component("wallets-payrequest-component",
 });
 
 /**
- * Componete: Confirmar pago 
+ * Componente: Confirmar pago 
  */
 const walletsPaycheck = Vue.component("wallets-paycheck-component",
 {
