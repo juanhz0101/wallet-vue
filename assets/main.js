@@ -220,6 +220,7 @@ const walletsCharge = Vue.component("wallets-charge-component",
       formWalletsCharge: {
         document: '',
         cell_phone: '',
+        value: ''
       },
       rulesWalletsCharge: {
         document: [
@@ -262,6 +263,7 @@ const walletsPayrequest = Vue.component("wallets-payrequest-component",
       formWalletsPayrequest: {
         document: '',
         cell_phone: '',
+        to_pay: ''
       },
       rulesWalletsPayrequest: {
         document: [
@@ -298,17 +300,37 @@ const walletsPayrequest = Vue.component("wallets-payrequest-component",
  */
 const walletsPaycheck = Vue.component("wallets-paycheck-component",
 {
-    template: "#wallets-paycheck",
-    data: function() {
-      return {
-          institute: "prueba"
+  template: "#wallets-paycheck",
+  data() {
+    return {
+      formWalletsPaycheck: {
+        session_payment: '',
+        token_payment: ''
+      },
+      rulesWalletsPaycheck: {
+        session_payment: [
+          { validator: validateSessionId, trigger: 'blur' }
+        ],
+        token_payment: [
+          { validator: validateToken, trigger: 'blur' }
+        ]
       }
-  }, 
-  mounted() {
-     
+    };
   },
   methods: {
-
+    submitForm(formName) {      
+      this.$refs[formName].validate((valid) => {                    
+        if (valid) {
+          executeApiRequest('POST','/wallets/paycheck',this.formWalletsPaycheck,this,formName);   
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    resetForm(formName) {
+      this.$refs[formName].resetFields();
+    }
   }
 
 });

@@ -49,3 +49,19 @@ var validateToPay = (rule,value, callback) => {
     callback();
   }   
 };
+
+var validateSessionId = (rule,value, callback) => {
+  if (!value) {
+    return callback(new Error('Por favor ingresar un ID de sesión'));
+  }  else {
+    callback();
+  }   
+};
+
+var validateToken= (rule,value, callback) => {
+  if (!value) {
+    return callback(new Error('Por favor ingresar un token'));
+  }  else {
+    callback();
+  }   
+};
