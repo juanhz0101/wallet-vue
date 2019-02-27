@@ -102,11 +102,12 @@
         <div class="row">
             <div class="col-md-6">          
               <el-form 
-                    :model="formWalletBalance" 
-                    status-icon 
-                    size="small"
-                    :rules="rulesWalletBalance" 
-                    ref="formWalletBalance" label-width="150px" class="demo-ruleForm">
+                  label-position="top"
+                  :model="formWalletBalance" 
+                  status-icon 
+                  size="small"
+                  :rules="rulesWalletBalance" 
+                  ref="formWalletBalance" label-width="150px" class="demo-ruleForm">
     
                 <el-form-item label="# Documento" prop="document">
                   <el-input type="text" v-model="formWalletBalance.document" autocomplete="off"></el-input>
@@ -142,11 +143,12 @@
       </div>
       <div class="text item">
         <el-form 
-              :model="formWalletsCharge" 
-              status-icon 
-              size="small"
-              :rules="rulesWalletsCharge" 
-              ref="formWalletsCharge" label-width="150px" class="demo-ruleForm">
+            label-position="top"
+            :model="formWalletsCharge" 
+            status-icon 
+            size="small"
+            :rules="rulesWalletsCharge" 
+            ref="formWalletsCharge" label-width="150px" class="demo-ruleForm">
 
           <el-form-item label="# Documento" prop="document">
             <el-input type="text" v-model="formWalletsCharge.document" autocomplete="off"></el-input>
@@ -177,10 +179,11 @@
       </div>
       <div class="text item">
           <el-form 
-              :model="formWalletsPayrequest" 
-              status-icon 
-              :rules="rulesWalletsPayrequest" 
-              ref="formWalletsPayrequest" label-width="150px" class="demo-ruleForm">
+            label-position="top"
+            :model="formWalletsPayrequest" 
+            status-icon 
+            :rules="rulesWalletsPayrequest" 
+            ref="formWalletsPayrequest" label-width="150px" class="demo-ruleForm">
 
           <el-form-item label="# Documento" prop="document">
             <el-input type="text" v-model="formWalletsPayrequest.document" autocomplete="off"></el-input>
@@ -211,10 +214,11 @@
     </div>
       <div class="text item">
         <el-form 
-              :model="formWalletsPaycheck" 
-              status-icon 
-              :rules="rulesWalletsPaycheck" 
-              ref="formWalletsPaycheck" label-width="150px" class="demo-ruleForm">
+          label-position="top"
+          :model="formWalletsPaycheck" 
+          status-icon 
+          :rules="rulesWalletsPaycheck" 
+          ref="formWalletsPaycheck" label-width="150px" class="demo-ruleForm">
 
           <el-form-item label="# de Sesión" prop="session_payment">
             <el-input type="text" v-model="formWalletsPaycheck.session_payment" autocomplete="off"></el-input>
