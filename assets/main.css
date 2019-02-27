@@ -11,3 +11,35 @@
 .el-submenu__title * {
   vertical-align: baseline;
 }
+
+.text {
+  font-size: 14px;
+}
+
+.item {
+  margin-bottom: 18px;
+}
+
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+}
+.clearfix:after {
+  clear: both
+}
+
+.box-card {
+  
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.el-menu-demo{
+  margin-bottom: 5px;
+}
+
+.el-menu-item *{
+  vertical-align: baseline;
+}

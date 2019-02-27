@@ -338,7 +338,8 @@ const walletsPaycheck = Vue.component("wallets-paycheck-component",
 
 // 2. Definición de rutas
 const routes = [
-  { path: '/clients/create', component: clientsCreate },
+  { path: '/', component: clientsCreate },
+  /* { path: '/clients/create', component: clientsCreate }, */
   { path: '/clients/wallet/balance', component: walletBalance },
   { path: '/wallets/charge', component: walletsCharge },
   { path: '/wallets/payrequest', component: walletsPayrequest },
