@@ -157,12 +157,12 @@
               <el-input type="text" v-model="formWalletsCharge.cell_phone" autocomplete="off"></el-input>
             </el-form-item>
 
-            <el-form-item label="Monto a pagar" prop="value">
+            <el-form-item label="Monto a cargar" prop="value">
                 <el-input type="text" v-model="formWalletsCharge.value" autocomplete="off"></el-input>
               </el-form-item>
 
             <el-form-item>
-              <el-button type="primary" @click="submitForm('formWalletsCharge')">Consultar</el-button>
+              <el-button type="primary" @click="submitForm('formWalletsCharge')">Cargar</el-button>
               <el-button @click="resetForm('formWalletsCharge')">Limpiar campos</el-button>
             </el-form-item>
           </el-form>
@@ -197,7 +197,7 @@
             </el-form-item>
 
           <el-form-item>
-            <el-button type="primary" @click="submitForm('formWalletsPayrequest')">Consultar</el-button>
+            <el-button type="primary" @click="submitForm('formWalletsPayrequest')">Pagar</el-button>
             <el-button @click="resetForm('formWalletsPayrequest')">Limpiar campos</el-button>
           </el-form-item>
         </el-form>
@@ -229,7 +229,7 @@
 
 
           <el-form-item>
-            <el-button type="primary" @click="submitForm('formWalletsPaycheck')">Consultar</el-button>
+            <el-button type="primary" @click="submitForm('formWalletsPaycheck')">Confirmar</el-button>
             <el-button @click="resetForm('formWalletsPaycheck')">Limpiar campos</el-button>
           </el-form-item>
         </el-form>

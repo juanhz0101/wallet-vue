@@ -1,6 +1,4 @@
 //0. Funciones de ayuda
-const apiUri = "http://localhost:3000";
-
 /**
  * Funcion utilizada para convertir el objeto de parametros a un estructura entendible por el servicio de node en una peticion http GET --> [Metodo Externo]
  */
@@ -38,6 +36,9 @@ var formatNumber = {
  * Funcion utilizada para preparar las peticiones http que seran enviadas al servicio de node
  */
 const executeApiRequest = function(method,route,params,instance,formName) {
+
+  //const apiUri = "http://localhost:3000"; //Entorno local
+  const apiUri = "https://node-rest-wallet.herokuapp.com"; //Entorno productivo
 
   switch (method) {
     case 'POST':
